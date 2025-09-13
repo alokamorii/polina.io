@@ -1,0 +1,159 @@
+/* Подключаем шрифт Comfortaa */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap');
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('https://otkritkis.com/wp-content/uploads/2022/07/inrze.gif') center center no-repeat fixed;
+    background-size: cover;
+    overflow: hidden;
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+/* Главный бокс */
+.neon-box {
+    background: linear-gradient(135deg, rgba(18, 28, 48, 0.35) 80%, rgba(16, 32, 22, 0.25) 100%);
+    border-radius: 24px;
+    box-shadow: 0 0 60px 10px #145c3644, 0 0 24px 4px #1a2a4d88;
+    border: 2px solid #145c3688;
+    padding: 2.5rem;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    animation: neonGlow 3s ease-in-out infinite alternate;
+    backdrop-filter: blur(2px);
+
+    /* Новая анимация появления */
+    opacity: 0;
+    animation: fadeInUp 1.5s ease forwards;
+    animation-delay: 0.3s; /* появляется вместе с текстом */
+}
+
+/* Внутренний блок с текстом */
+.inner-box {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    border-radius: 16px;
+    background: rgba(22, 32, 48, 0.25);
+    box-shadow: inset 0 0 12px #145c3644;
+    animation: fadeInUp 2s ease forwards;
+    opacity: 0;
+    animation-delay: 1.5s;
+}
+
+/* Заголовок */
+h1 {
+    font-size: 2.7rem;
+    color: #d6faff;
+    letter-spacing: 0.12em;
+    text-shadow: 0 0 16px #145c36, 0 0 32px #1a2a4d, 0 0 64px #d6faff;
+    margin-bottom: 1.3rem;
+    animation: titlePulse 2.5s infinite alternate;
+}
+
+/* Обычный текст */
+p {
+    font-size: 1.15rem;
+    margin: 1.1rem 0;
+    color: #d6faff;
+    text-shadow: 0 0 10px #145c3644, 0 0 8px #1a2a4d66;
+    background: rgba(22, 32, 48, 0.25);
+    border-radius: 10px;
+    padding: 0.7rem 1rem;
+    box-shadow: 0 0 12px 2px #145c3622, 0 0 8px 2px #1a2a4d22;
+    transition: box-shadow 0.3s, background 0.3s;
+}
+
+p:hover {
+    box-shadow: 0 0 24px 6px #145c3699, 0 0 16px 4px #1a2a4d99;
+    background: rgba(22, 32, 48, 0.45);
+}
+
+/* Кнопка */
+.neon-btn {
+    margin-top: 2rem;
+    padding: 1.1rem 2.5rem;
+    font-size: 1.25rem;
+    font-family: inherit;
+    color: #d6faff;
+    background: linear-gradient(135deg, rgba(18, 28, 48, 0.65) 70%, rgba(16, 32, 22, 0.55) 100%);
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 0 24px 6px #145c3688, 0 0 12px 3px #1a2a4d88;
+    cursor: pointer;
+    transition: box-shadow 0.3s, background 0.3s;
+    outline: none;
+    width: auto;
+    min-width: 180px;
+    max-width: 320px;
+    display: inline-block;
+
+    opacity: 0;
+    animation: fadeInUp 2s ease forwards;
+    animation-delay: 3.5s;
+}
+
+.neon-btn:hover {
+    box-shadow: 0 0 40px 12px #145c36cc, 0 0 24px 8px #1a2a4dcc;
+    background: linear-gradient(135deg, rgba(16, 32, 22, 0.75) 60%, rgba(18, 28, 48, 0.65) 100%);
+}
+
+/* --- Анимации --- */
+
+/* Свечение бокса */
+@keyframes neonGlow {
+    0% { box-shadow: 0 0 60px 10px #145c3644, 0 0 24px 4px #1a2a4d88; }
+    100% { box-shadow: 0 0 80px 20px #145c3688, 0 0 32px 8px #1a2a4d; }
+}
+
+/* Пульсация заголовка */
+@keyframes titlePulse {
+    0% { text-shadow: 0 0 16px #145c36, 0 0 32px #1a2a4d, 0 0 64px #d6faff; }
+    100% { text-shadow: 0 0 32px #d6faff, 0 0 64px #d6faff, 0 0 128px #145c36; }
+}
+
+/* Плавное появление */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Адаптивность --- */
+@media (max-width: 900px) {
+    .neon-box {
+        max-width: 98vw;
+        padding: 1.2rem 0.5rem;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+}
+
+/* Отдельный параграф под боксом */
+.note {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: #d6faff;
+    opacity: 0;
+    animation: fadeInUp 2s ease forwards;
+    animation-delay: 2.5s;
+    text-shadow: 0 0 8px #145c3688;
+}

@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap');
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    background: url('https://otkritkis.com/wp-content/uploads/2022/07/inrze.gif') center center no-repeat fixed;
+    background-size: cover;
+    font-family: 'Comfortaa', cursive;
+    overflow: hidden;
+}
+
+/* --- Плавное появление всего --- */
+.neon-box, .gif-box, h1, p, .neon-btn {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+.neon-box { animation-delay: 0.2s; }
+h1 { animation-delay: 0.4s; }
+p { animation-delay: 0.6s; }
+.neon-btn { animation-delay: 0.8s; }
+.gif-box { animation-delay: 1s; }
+
+/* Бокс с текстом */
+.neon-box {
+    background: linear-gradient(135deg, rgba(18, 28, 48, 0.7) 80%, rgba(16, 32, 22, 0.55) 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    border: 2px solid #145c3688;
+    box-shadow: 0 0 50px 10px #145c3644, 0 0 20px 4px #1a2a4d88;
+    backdrop-filter: blur(6px);
+    max-width: 600px;
+    width: 90%;
+    margin-bottom: 20px;
+    z-index: 2;
+    position: relative;
+}
+
+/* Кнопка */
+.neon-btn {
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-family: inherit;
+    color: #b8fff5;
+    background: rgba(0, 200, 180, 0.25);
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 0 20px #00fff0aa, 0 0 40px #00fff077;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.neon-btn:hover {
+    background: rgba(0, 250, 220, 0.4);
+    box-shadow: 0 0 30px #00fff0cc, 0 0 60px #00fff0aa;
+    transform: scale(1.05);
+}
+
+/* Гифка */
+.gif-box {
+    z-index: 1;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 0 30px 5px #145c3644, 0 0 50px 10px #1a2a4d88, 0 0 80px 20px #00fff055;
+}
+.gif-box img {
+    display: block;
+    max-width: none;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* Текст */
+h1 {
+    font-size: 2rem;
+    color: #d6faff;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 12px #145c36, 0 0 24px #1a2a4d, 0 0 48px #d6faff;
+}
+p {
+    font-size: 1.2rem;
+    color: #c7f7ff;
+    text-shadow: 0 0 8px #145c3644, 0 0 16px #1a2a4d66;
+    margin: 0.5rem 0;
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

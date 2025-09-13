@@ -1,0 +1,150 @@
+/* Six: фон-гивка на весь экран + стилистика в розовом неоне, исправлена высота и поведение
+   Исправление: теперь можно пролистнуть до начала — убрано вертикальное центрирование, добавлен верхний отступ. */
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap');
+
+:root{
+    --bg-gif: url('https://i.gifer.com/g20B.gif');
+    --pink-neon: #ff2fae;
+    --pink-soft: rgba(255,47,174,0.16);
+    --text-light: #ffeefe;
+    --panel-bg: rgba(8,12,20,0.28);
+    --max-width: 900px;
+}
+
+/* Гарантируем, что фон занимает весь экран и что контент прокручивается от верхнего края */
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
+/* ВАЖНО: align-items: flex-start позволяет корректно прокручивать содержимое вверх.
+   padding-top даёт «вдох» сверху, чтобы визуально не прилипало к краю. */
+body{
+    font-family: 'Comfortaa', cursive;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background:
+        linear-gradient(180deg, rgba(4,8,15,0.32), rgba(10,12,18,0.42)),
+        var(--bg-gif) center center / cover no-repeat fixed;
+    color: var(--text-light);
+    display: flex;
+    align-items: flex-start;      /* <-- исправлено: теперь можно пролистать до самого верха */
+    justify-content: center;
+    padding-top: 28px;            /* небольшой отступ сверху */
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+}
+
+/* Контейнер */
+.neon-box{
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 20px;
+    padding: 28px 34px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(6,10,18,0.30), rgba(6,10,18,0.16));
+    border: 1px solid rgba(255,47,174,0.10);
+    box-shadow:
+        0 10px 40px rgba(6,8,12,0.6),
+        0 0 48px 10px var(--pink-soft);
+    backdrop-filter: blur(6px) saturate(120%);
+    position: relative;
+    z-index: 2;
+}
+
+/* Тонкие линии подсветки */
+.neon-box::before,
+.neon-box::after{
+    content: "";
+    position: absolute;
+    left: 16px; right: 16px; height: 4px; border-radius: 6px;
+    background: linear-gradient(90deg, rgba(255,47,174,0.0) 0%, var(--pink-neon) 50%, rgba(255,47,174,0.0) 100%);
+    filter: blur(8px);
+    opacity: 0.95;
+}
+.neon-box::before{ top: 12px; } .neon-box::after{ bottom: 12px; }
+
+/* Заголовок и контент */
+.neon-box h1{
+    margin: 0 0 12px;
+    font-size: 26px;
+    color: var(--text-light);
+    text-shadow: 0 0 14px rgba(255,47,174,0.14), 0 6px 18px rgba(0,0,0,0.6);
+    font-weight: 700;
+}
+.content{
+    display: grid;
+    gap: 10px;
+}
+.content p{
+    margin: 0;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: rgba(6,10,18,0.16);
+    color: var(--text-light);
+    box-shadow: 0 8px 22px rgba(4,6,10,0.45), 0 0 18px rgba(255,47,174,0.06) inset;
+    font-size: 1rem;
+}
+
+/* Кнопка */
+.neon-btn{
+    margin-top: 18px;
+    padding: 12px 26px;
+    font-size: 1.12rem;
+    color: var(--text-light);
+    background: linear-gradient(135deg, rgba(18,12,28,0.44), rgba(36,16,34,0.22));
+    border: 1px solid rgba(255,47,174,0.16);
+    border-radius: 14px;
+    box-shadow: 0 8px 34px rgba(10,8,12,0.5), 0 0 48px 12px var(--pink-soft);
+    cursor: pointer;
+    transition: transform .14s, box-shadow .16s;
+    min-width: 180px;
+}
+.neon-btn:hover{ transform: translateY(-3px); box-shadow: 0 12px 48px rgba(10,8,12,0.62), 0 0 84px 20px rgba(255,47,174,0.28); }
+
+/* Плавное появление */
+@keyframes appearUp{ from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none} }
+.neon-box, .content p, .neon-btn{ animation: appearUp .45s ease both; }
+
+/* Мобильная адаптация */
+@media (max-width: 720px){
+    :root{ --max-width: 96vw; }
+    .neon-box{ padding: 18px; margin: 14px; }
+    .neon-btn{ min-width: 150px; padding: 10px 18px; }
+}
+
+.box-gifs{
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 18px;
+    pointer-events: none;
+    flex-wrap: wrap; /* на узких экранах гифы перейдут в колонку */
+}
+
+/* общий стиль для каждой гифки */
+.box-gif{
+    flex: 1 1 48%; /* две колонки по ~48% */
+    display: flex;
+    justify-content: center;
+}
+
+/* изображение: максимум по ширине контейнера, сохраняет пропорции */
+.box-gif img{
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 24px 8px rgba(255,47,174,0.06);
+    display: block;
+}
+
+/* адаптация: на мобильных — гифы стекутся в колонку, отступы уменьшены */
+@media (max-width: 720px){
+    .box-gifs{ gap: 12px; }
+    .box-gif{ flex-basis: 100%; }
+    .box-gif img{ max-width: 92vw; border-radius: 10px; }
+}
+/* ...existing code... */

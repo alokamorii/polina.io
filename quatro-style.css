@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Comfortaa', cursive;
+
+    /* затемнённый фон с гифкой */
+    background: 
+        linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)),
+        url('https://otkritkis.com/wp-content/uploads/2022/07/inrze.gif') center center/cover no-repeat;
+    color: #fff;
+    text-align: center;
+}
+
+/* Заголовок */
+h1 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    text-shadow: 
+        0 0 6px rgba(255,255,255,0.6),
+        0 0 14px rgba(220,220,220,0.3);
+    animation: fadeInDown 2s ease;
+}
+
+/* Абзацы */
+p {
+    font-size: 20px;
+    margin: 12px 0;
+    line-height: 1.6;
+    text-shadow: 
+        0 0 4px rgba(255,255,255,0.5),
+        0 0 12px rgba(220,220,220,0.25);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+p:nth-child(2) { animation-delay: 0.6s; }
+p:nth-child(3) { animation-delay: 1s; }
+p:nth-child(4) { animation-delay: 1.4s; }
+p:nth-child(5) { animation-delay: 1.8s; }
+p:nth-child(6) { animation-delay: 2.2s; }
+
+/* кнопка */
+button {
+    margin-top: 30px;
+    padding: 12px 28px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+
+    /* свечение */
+    box-shadow:
+        0 0 6px rgba(255,255,255,0.6),
+        0 0 18px rgba(220,220,220,0.3);
+
+    /* появление через 2с */
+    animation: fadeInButton 1.5s ease forwards;
+    animation-delay: 2s;
+}
+
+button:hover {
+    background: rgba(255,255,255,0.1);
+    box-shadow:
+        0 0 10px rgba(255,255,255,0.8),
+        0 0 22px rgba(220,220,220,0.4);
+    transform: scale(1);
+}
+
+/* анимации */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInButton {
+    to { opacity: 1; transform: scale(1); }
+}

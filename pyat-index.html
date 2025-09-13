@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>обманка</title>
+    <link rel="stylesheet" href="CSS/quatro-style.css">
+    <link rel="stylesheet" href="CSS/pyat-style.css">
+</head>
+<body>
+    <div class="neon-box">
+        <h1>Любимка це обманка</h1>
+        <p>Ты уже почти у цели</p>
+        <p>Я тебя очень люблю</p>
+        <p>Ещё чуть-чуть — и ты тут</p>
+
+        <div class="btn-wrap" style="margin-top:18px;">
+            <button id="open-six" class="neon-btn" type="button">
+                нажимай, ну можешь не нажимать, на свой страх и риск
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Открывает six-index.html в той же папке Project
+        document.getElementById('open-six')?.addEventListener('click', function () {
+            window.location.href = 'six-index.html';
+        });
+    </script>
+</body>
+</html>

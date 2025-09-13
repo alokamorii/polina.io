@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Quatro</title>
+    <link rel="stylesheet" href="CSS/quatro-style.css">
+</head>
+<body>
+    <div class="neon-box">
+        <!-- восстановленный контент -->
+        <h1>Ты ж моя молодчинка, я хочу тебе сказать, как сильно я тебя люблю</h1>
+        <p>Ты уже очень близка к прочтению</p>
+        <p>я надеюсь что тебе понравится</p>
+        <p>не суди особо строго</p>
+        <p>вот это все что было мной сделанно</p>
+        <p>было сделанно все с любовью</p>
+
+        <!-- Кнопка, которая открывает пятый проект -->
+        <div class="btn-wrap" style="margin-top:18px;">
+            <button id="open-pyat" class="neon-btn" type="button">
+                жмякни
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('open-pyat');
+        if (btn) {
+            btn.addEventListener('click', () => {
+                window.location.href = 'pyat-index.html';
+            });
+        }
+    </script>
+</body>
+</html>

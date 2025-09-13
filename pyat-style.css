@@ -1,0 +1,239 @@
+/* Pyat: тот же дизайн, но зелёная подсветка вместо розовой — фон-гифка гарантированно применён */
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap');
+
+:root{
+    --bg-gif: url('https://otkritkis.com/wp-content/uploads/2022/07/inrze.gif');
+    --green-neon: #28d07a;
+    --green-soft: rgba(40,208,122,0.14);
+    --text: #e9fff6;
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    font-family: 'Comfortaa', cursive;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background:
+        linear-gradient(180deg, rgba(4,8,15,0.32), rgba(10,12,18,0.42)),
+        var(--bg-gif) center center / cover no-repeat fixed;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-rendering: optimizeLegibility;
+}
+
+/* Центральный полупрозрачный бокс */
+.neon-box{
+    width: 100%;
+    max-width: 720px;
+    margin: 20px;
+    padding: 28px 34px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(8,12,20,0.30), rgba(8,12,20,0.18));
+    border: 1px solid rgba(40,208,122,0.10);
+    box-shadow:
+        0 10px 40px rgba(8,10,14,0.6),
+        0 0 72px 14px var(--green-soft);
+    backdrop-filter: blur(6px) saturate(120%);
+    position: relative;
+    z-index: 2;
+    overflow: visible;
+}
+
+/* Акцентные неон-линиии сверху/снизу (зелёные) */
+.neon-box::before,
+.neon-box::after{
+    content: "";
+    position: absolute;
+    left: 16px; right: 16px; height: 4px; border-radius: 6px;
+    background: linear-gradient(90deg, rgba(40,208,122,0.0) 0%, var(--green-neon) 50%, rgba(40,208,122,0.0) 100%);
+    filter: blur(8px);
+    opacity: 0.95;
+    pointer-events: none;
+}
+.neon-box::before{ top: 12px; } .neon-box::after{ bottom: 12px; }
+
+/* Заголовок — чёткая зелёная подсветка */
+.neon-box h1{
+    margin: 0 0 12px 0;
+    font-size: 28px;
+    color: var(--text);
+    text-shadow:
+        0 0 10px rgba(40,208,122,0.18),
+        0 0 28px rgba(40,208,122,0.10),
+        0 6px 18px rgba(0,0,0,0.6);
+    font-weight: 700;
+}
+
+/* Параграфы — мягкий внутренний неон */
+.neon-box p{
+    margin: 0.6rem 0;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: rgba(6,10,18,0.18);
+    color: var(--text);
+    box-shadow: 0 8px 22px rgba(4,6,10,0.45), 0 0 18px rgba(40,208,122,0.06) inset;
+    transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+    font-size: 1rem;
+}
+
+/* Hover усиление подсветки для абзацев */
+.neon-box p:hover,
+.neon-box p:focus{
+    transform: translateY(-4px);
+    box-shadow: 0 14px 40px rgba(4,6,10,0.6), 0 0 44px rgba(40,208,122,0.16) inset;
+    background: rgba(8,12,22,0.26);
+}
+
+/* Кнопка — в зелёный тон */
+.neon-btn{
+    margin-top: 18px;
+    padding: 12px 26px;
+    font-size: 1.12rem;
+    color: var(--text);
+    background: linear-gradient(135deg, rgba(18,12,28,0.46), rgba(36,16,34,0.22));
+    border: 1px solid rgba(40,208,122,0.18);
+    border-radius: 14px;
+    box-shadow: 0 8px 34px rgba(10,8,12,0.5), 0 0 48px 12px var(--green-soft);
+    cursor: pointer;
+    transition: transform .14s, box-shadow .16s;
+    min-width: 180px;
+}
+.neon-btn:hover,
+.neon-btn:focus{
+    transform: translateY(-3px);
+    box-shadow: 0 12px 48px rgba(10,8,12,0.62), 0 0 84px 20px rgba(40,208,122,0.28);
+}
+
+/* Анимация появления */
+@keyframes appearUp{ from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none} }
+.neon-box, .neon-box h1, .neon-box p, .neon-btn{ animation: appearUp .45s ease both; }
+
+/* Адаптив */
+@media (max-width:720px){
+    .neon-box{ padding:18px; margin:14px; }
+    .neon-btn{ min-width:150px; padding:10px 18px; }
+}
+```/* filepath: c:\Users\sanya\OneDrive\Рабочий стол\Project\CSS\pyat-style.css */
+/* Pyat: тот же дизайн, но зелёная подсветка вместо розовой — фон-гифка гарантированно применён */
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap');
+
+:root{
+    --bg-gif: url('https://otkritkis.com/wp-content/uploads/2022/07/inrze.gif');
+    --green-neon: #28d07a;
+    --green-soft: rgba(40,208,122,0.14);
+    --text: #e9fff6;
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    font-family: 'Comfortaa', cursive;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background:
+        linear-gradient(180deg, rgba(4,8,15,0.32), rgba(10,12,18,0.42)),
+        var(--bg-gif) center center / cover no-repeat fixed;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-rendering: optimizeLegibility;
+}
+
+/* Центральный полупрозрачный бокс */
+.neon-box{
+    width: 100%;
+    max-width: 720px;
+    margin: 20px;
+    padding: 28px 34px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(8,12,20,0.30), rgba(8,12,20,0.18));
+    border: 1px solid rgba(40,208,122,0.10);
+    box-shadow:
+        0 10px 40px rgba(8,10,14,0.6),
+        0 0 72px 14px var(--green-soft);
+    backdrop-filter: blur(6px) saturate(120%);
+    position: relative;
+    z-index: 2;
+    overflow: visible;
+}
+
+/* Акцентные неон-линиии сверху/снизу (зелёные) */
+.neon-box::before,
+.neon-box::after{
+    content: "";
+    position: absolute;
+    left: 16px; right: 16px; height: 4px; border-radius: 6px;
+    background: linear-gradient(90deg, rgba(40,208,122,0.0) 0%, var(--green-neon) 50%, rgba(40,208,122,0.0) 100%);
+    filter: blur(8px);
+    opacity: 0.95;
+    pointer-events: none;
+}
+.neon-box::before{ top: 12px; } .neon-box::after{ bottom: 12px; }
+
+/* Заголовок — чёткая зелёная подсветка */
+.neon-box h1{
+    margin: 0 0 12px 0;
+    font-size: 28px;
+    color: var(--text);
+    text-shadow:
+        0 0 10px rgba(40,208,122,0.18),
+        0 0 28px rgba(40,208,122,0.10),
+        0 6px 18px rgba(0,0,0,0.6);
+    font-weight: 700;
+}
+
+/* Параграфы — мягкий внутренний неон */
+.neon-box p{
+    margin: 0.6rem 0;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: rgba(6,10,18,0.18);
+    color: var(--text);
+    box-shadow: 0 8px 22px rgba(4,6,10,0.45), 0 0 18px rgba(40,208,122,0.06) inset;
+    transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+    font-size: 1rem;
+}
+
+/* Hover усиление подсветки для абзацев */
+.neon-box p:hover,
+.neon-box p:focus{
+    transform: translateY(-4px);
+    box-shadow: 0 14px 40px rgba(4,6,10,0.6), 0 0 44px rgba(40,208,122,0.16) inset;
+    background: rgba(8,12,22,0.26);
+}
+
+/* Кнопка — в зелёный тон */
+.neon-btn{
+    margin-top: 18px;
+    padding: 12px 26px;
+    font-size: 1.12rem;
+    color: var(--text);
+    background: linear-gradient(135deg, rgba(18,12,28,0.46), rgba(36,16,34,0.22));
+    border: 1px solid rgba(40,208,122,0.18);
+    border-radius: 14px;
+    box-shadow: 0 8px 34px rgba(10,8,12,0.5), 0 0 48px 12px var(--green-soft);
+    cursor: pointer;
+    transition: transform .14s, box-shadow .16s;
+    min-width: 180px;
+}
+.neon-btn:hover,
+.neon-btn:focus{
+    transform: translateY(-3px);
+    box-shadow: 0 12px 48px rgba(10,8,12,0.62), 0 0 84px 20px rgba(40,208,122,0.28);
+}
+
+/* Анимация появления */
+@keyframes appearUp{ from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none} }
+.neon-box, .neon-box h1, .neon-box p, .neon-btn{ animation: appearUp .45s ease both; }
+
+/* Адаптив */
+@media (max-width:720px){
+    .neon-box{ padding:18px; margin:14px; }
+    .neon-btn{ min-width:150px; padding:10px 18px; }
+}

@@ -1,0 +1,140 @@
+/* Подключаем шрифт Comfortaa */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap');
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('https://otkritkis.com/wp-content/uploads/2022/07/inrze.gif') center center no-repeat fixed;
+    background-size: cover;
+    font-family: 'Comfortaa', cursive;
+}
+
+/* Основной бокс */
+.neon-box {
+    background: linear-gradient(135deg, rgba(18, 28, 48, 0.45) 80%, rgba(16, 32, 22, 0.35) 100%);
+    border-radius: 24px;
+    box-shadow: 0 0 60px 10px #145c3644, 0 0 24px 4px #1a2a4d88;
+    border: 2px solid #145c3688;
+    padding: 2.5rem;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(4px);
+
+    /* --- Новая анимация появления --- */
+    opacity: 0;
+    animation: fadeInUp 1.2s ease forwards;
+    animation-delay: 0.3s;
+}
+
+/* Внутренний бокс для текста */
+.inner-box {
+    background: rgba(20, 30, 50, 0.45);
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: 0 0 20px rgba(0, 255, 200, 0.15);
+
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.6s;
+}
+
+/* Заголовок */
+h1 {
+    font-size: 2.2rem;
+    color: #d6faff;
+    letter-spacing: 0.08em;
+    text-shadow: 0 0 16px #145c36, 0 0 32px #1a2a4d, 0 0 64px #d6faff;
+    margin-bottom: 1rem;
+
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+/* Подзаголовок */
+h3 {
+    font-size: 1.2rem;
+    color: #c7f7ff;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 8px #145c3644;
+
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.7s;
+}
+
+/* Контейнер кнопок */
+.choice-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    gap: 20px;
+
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.9s;
+}
+
+/* Общие стили кнопок */
+.choice-buttons p,
+.choice-buttons a {
+    flex: 1;
+    margin: 0;
+    padding: 1rem 1.5rem;
+    font-size: 1.05rem;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+    text-align: center;
+    user-select: none;
+    text-decoration: none;
+}
+
+/* Правильный путь (зелёная) */
+.choice-buttons .right {
+    background: rgba(0, 200, 180, 0.25);
+    color: #b8fff5;
+    box-shadow: 0 0 20px #00fff0aa, 0 0 40px #00fff077;
+}
+.choice-buttons .right:hover {
+    background: rgba(0, 250, 220, 0.4);
+    box-shadow: 0 0 30px #00fff0cc, 0 0 60px #00fff0aa;
+    transform: scale(1.05);
+}
+
+/* Неправильный путь (красная) */
+.choice-buttons .wrong {
+    background: rgba(200, 0, 60, 0.25);
+    color: #ffc8d0;
+    box-shadow: 0 0 20px #ff0044aa, 0 0 40px #ff004477;
+}
+.choice-buttons .wrong:hover {
+    background: rgba(250, 0, 80, 0.4);
+    box-shadow: 0 0 30px #ff0044cc, 0 0 60px #ff0044aa;
+    transform: scale(1.05);
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .choice-buttons {
+        flex-direction: column;
+    }
+    .choice-buttons p,
+    .choice-buttons a {
+        margin-bottom: 1rem;
+    }
+}
+
+/* --- Анимация появления --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
